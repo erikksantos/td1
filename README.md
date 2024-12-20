@@ -9,7 +9,7 @@ Esse problema é aplicável em diversas áreas, como segurança (verificação d
 
 ## Algoritmos Implementados
 
-1. **Força Bruta**: O algoritmo testa todas as combinações possíveis de dois números dentro do conjunto para ver se a soma deles é igual ao valor valor.
+1. **Força Bruta**: O algoritmo testa todas as combinações possíveis de dois números dentro do conjunto para ver se a soma deles é igual ao valor procurado.
    
 2. **Divisão e Conquista**: O algoritmo divide o problema em subproblemas menores, resolve os subproblemas e combina os resultados obtidos.
    
@@ -20,9 +20,17 @@ Esse problema é aplicável em diversas áreas, como segurança (verificação d
 
 ## Comparação de Desempenho
 
-| Algoritmo               | Descrição                                                         | Tempo de Execução (ms)| Eficiência |Memória Usada (KB) | Observações |
-|-------------------------|-------------------------------------------------------------------|-----------------------|------------|-------------------|-------------|
-| **Força Bruta**          | Testa todas as combinações possíveis até encontrar a solução ótima | 10 segundos         |            |                   |             |
-| **Divisão e Conquista**  | Divide o problema em subproblemas menores e resolve-os recursivamente | 5 segundos       |            |                   |             |
-| **Programação Dinâmica** | Armazena soluções parciais para evitar recomputação               | 2 segundos           |            |                   |             |
-| **Algoritmo Guloso**     | Armazena soluções parciais para evitar recomputação               | 2 segundos           |            |                   |             |
+| Algoritmo                | Tamanho do Conjunto       | Tempo de Execução (ms)| Eficiência |Memória Usada (KB) | Observações |
+|--------------------------|---------------------------|-----------------------|------------|-------------------|-------------|
+| **Força Bruta**          | 10                        | 10 segundos           |            |                   |             |
+|                          | 100                       | 10 segundos           |            |                   |             |
+|                          | 1000                      | 10 segundos           |            |                   |             |
+| **Divisão e Conquista**  | 10                        | 5 segundos            |            |                   |             |
+|                          | 100                       | 5 segundos            |            |                   |             |
+|                          | 1000                      | 5 segundos            |            |                   |             |
+| **Programação Dinâmica** | 10                        | 2 segundos            |            |                   |             |
+|                          | 100                       | 2 segundos            |            |                   |             |
+|                          | 1000                      | 2 segundos            |            |                   |             |
+| **Algoritmo Guloso**     | 10                        | 2 segundos            |            |                   |             |
+|                          | 100                       | 2 segundos            |            |                   |             |
+|                          | 1000                      | 2 segundos            |            |                   |             |
