@@ -8,26 +8,48 @@ namespace AlgoritmosDeDecisao
     {
         static void Main(string[] args)
         {
-            // Criar instância do problema de Soma de Pares
-            var instancia = CriarInstancia();
+            // Criar instâncias do problema de Soma de Pares
+            var instancias = new List<List<int>>
+            {
+                CriaInstancia(10),
+                CriaInstancia(100),
+                CriaInstancia(1000)
+            };
 
-            // Submeter aos algoritmos e medir o tempo e memória
-            TestarAlgoritmo("Força Bruta", () => ForcaBruta.Executar(instancia));
-            TestarAlgoritmo("Divisão e Conquista", () => DivisaoConquista.Executar(instancia));
-            TestarAlgoritmo("Programação Dinâmica", () => ProgramacaoDinamica.Executar(instancia));
-            TestarAlgoritmo("Algoritmo Guloso", () => AlgoritmoGuloso.Executar(instancia));
+            int valor = 10;
+
+            foreach (var instancia in instancias)
+            {
+                Console.WriteLine($"Testando instância com tamanho: {instancia.Count}");
+
+                // Testes de tempo e memória
+                TesteAlgoritmo("Força Bruta", () => ForcaBruta.Execucao(instancia, valor));
+                TesteAlgoritmo("Divisão e Conquista", () => DivisaoConquista.Execucao(instancia, valor));
+                TesteAlgoritmo("Programação Dinâmica", () => ProgramacaoDinamica.Execucao(instancia, valor));
+                TesteAlgoritmo("Algoritmo Guloso", () => AlgoritmoGuloso.Execucao(instancia, valor));
+
+                Console.WriteLine();
+            }
         }
 
-        // Método que cria uma instância do problema de Soma de Pares
-        private static List<int> CriarInstancia()
+        // Função que cria uma instância do problema de Soma de Pares
+        private static List<int> CriaInstancia(int tamanho)
         {
-            return new List<int> { 1, 2, 3, 4, 5, 6 };
+            var numeros = new List<int>();
+            var random = new Random();
+
+            for (int i = 0; i < tamanho; i++)
+            {
+                numeros.Add(random.Next(1, 101));
+            }
+
+            return numeros;
         }
 
-        // Método que testa um algoritmo e mede o tempo de execução e consumo de memória
-        private static void TestarAlgoritmo(string nomeAlgoritmo, Action algoritmo)
+        // Função que testa um algoritmo e mede o tempo de execução e consumo de memória
+        private static void TesteAlgoritmo(string nome, Action algoritmo)
         {
-            Console.WriteLine($"Testando algoritmo: {nomeAlgoritmo}");
+            Console.WriteLine($"Teste do algoritmo: {nome}");
 
             // Medindo tempo de execução
             var stopwatch = new Stopwatch();
@@ -53,44 +75,15 @@ namespace AlgoritmosDeDecisao
     }
 
     // Algoritmos para o problema de Soma de Pares
-    public static class ForcaBruta
-    {
-        public static void Executar(List<int> numeros)
-        {
-            int alvo = 10;
-            var resultado = ResolverSomaParesForcaBruta(numeros, alvo);
-            Console.WriteLine($"Pares encontrados (Força Bruta): {string.Join(", ", resultado)}");
-        }
-
-        private static List<(int, int)> ResolverSomaParesForcaBruta(List<int> numeros, int alvo)
-        {
-            var pares = new List<(int, int)>();
-
-            for (int i = 0; i < numeros.Count; i++)
-            {
-                for (int j = i + 1; j < numeros.Count; j++)
-                {
-                    if (numeros[i] + numeros[j] == alvo)
-                    {
-                        pares.Add((numeros[i], numeros[j]));
-                    }
-                }
-            }
-
-            return pares;
-        }
-    }
-
     public static class DivisaoConquista
     {
-        public static void Executar(List<int> numeros)
+        public static void Execucao(List<int> numeros, int valor)
         {
-            int alvo = 10;
-            var resultado = ResolverSomaParesDivisaoConquista(numeros, alvo, 0, numeros.Count - 1);
+            var resultado = ResolverSomaParesDivisaoConquista(numeros, valor, 0, numeros.Count - 1);
             Console.WriteLine($"Pares encontrados (Divisão e Conquista): {string.Join(", ", resultado)}");
         }
 
-        private static List<(int, int)> ResolverSomaParesDivisaoConquista(List<int> numeros, int alvo, int inicio, int fim)
+        private static List<(int, int)> ResolverSomaParesDivisaoConquista(List<int> numeros, int valor, int inicio, int fim)
         {
             var pares = new List<(int, int)>();
 
@@ -98,8 +91,8 @@ namespace AlgoritmosDeDecisao
                 return pares;
 
             int meio = (inicio + fim) / 2;
-            var paresEsquerda = ResolverSomaParesDivisaoConquista(numeros, alvo, inicio, meio);
-            var paresDireita = ResolverSomaParesDivisaoConquista(numeros, alvo, meio + 1, fim);
+            var paresEsquerda = ResolverSomaParesDivisaoConquista(numeros, valor, inicio, meio);
+            var paresDireita = ResolverSomaParesDivisaoConquista(numeros, valor, meio + 1, fim);
 
             pares.AddRange(paresEsquerda);
             pares.AddRange(paresDireita);
@@ -108,7 +101,7 @@ namespace AlgoritmosDeDecisao
             {
                 for (int j = meio + 1; j <= fim; j++)
                 {
-                    if (numeros[i] + numeros[j] == alvo)
+                    if (numeros[i] + numeros[j] == valor)
                     {
                         pares.Add((numeros[i], numeros[j]));
                     }
@@ -119,28 +112,27 @@ namespace AlgoritmosDeDecisao
         }
     }
 
-    public static class ProgramacaoDinamica
+    public static class ForcaBruta
     {
-        public static void Executar(List<int> numeros)
+        public static void Execucao(List<int> numeros, int valor)
         {
-            int alvo = 10;
-            var resultado = ResolverSomaParesProgramacaoDinamica(numeros, alvo);
-            Console.WriteLine($"Pares encontrados (Programação Dinâmica): {string.Join(", ", resultado)}");
+            var resultado = ResolverSomaParesForcaBruta(numeros, valor);
+            Console.WriteLine($"Pares encontrados (Força Bruta): {string.Join(", ", resultado)}");
         }
 
-        private static List<(int, int)> ResolverSomaParesProgramacaoDinamica(List<int> numeros, int alvo)
+        private static List<(int, int)> ResolverSomaParesForcaBruta(List<int> numeros, int valor)
         {
             var pares = new List<(int, int)>();
-            var hashset = new HashSet<int>();
 
-            foreach (var num in numeros)
+            for (int i = 0; i < numeros.Count; i++)
             {
-                int complemento = alvo - num;
-                if (hashset.Contains(complemento))
+                for (int j = i + 1; j < numeros.Count; j++)
                 {
-                    pares.Add((num, complemento));
+                    if (numeros[i] + numeros[j] == valor)
+                    {
+                        pares.Add((numeros[i], numeros[j]));
+                    }
                 }
-                hashset.Add(num);
             }
 
             return pares;
@@ -149,14 +141,13 @@ namespace AlgoritmosDeDecisao
 
     public static class AlgoritmoGuloso
     {
-        public static void Executar(List<int> numeros)
+        public static void Execucao(List<int> numeros, int valor)
         {
-            int alvo = 10;
-            var resultado = ResolverSomaParesGuloso(numeros, alvo);
+            var resultado = ResolverSomaParesGuloso(numeros, valor);
             Console.WriteLine($"Pares encontrados (Algoritmo Guloso): {string.Join(", ", resultado)}");
         }
 
-        private static List<(int, int)> ResolverSomaParesGuloso(List<int> numeros, int alvo)
+        private static List<(int, int)> ResolverSomaParesGuloso(List<int> numeros, int valor)
         {
             var pares = new List<(int, int)>();
             numeros.Sort();
@@ -168,13 +159,13 @@ namespace AlgoritmosDeDecisao
             {
                 int soma = numeros[esquerda] + numeros[direita];
 
-                if (soma == alvo)
+                if (soma == valor)
                 {
                     pares.Add((numeros[esquerda], numeros[direita]));
                     esquerda++;
                     direita--;
                 }
-                else if (soma < alvo)
+                else if (soma < valor)
                 {
                     esquerda++;
                 }
@@ -187,5 +178,31 @@ namespace AlgoritmosDeDecisao
             return pares;
         }
     }
-}
 
+    public static class ProgramacaoDinamica
+    {
+        public static void Execucao(List<int> numeros, int valor)
+        {
+            var resultado = ResolverSomaParesProgramacaoDinamica(numeros, valor);
+            Console.WriteLine($"Pares encontrados (Programação Dinâmica): {string.Join(", ", resultado)}");
+        }
+
+        private static List<(int, int)> ResolverSomaParesProgramacaoDinamica(List<int> numeros, int valor)
+        {
+            var pares = new List<(int, int)>();
+            var hashset = new HashSet<int>();
+
+            foreach (var num in numeros)
+            {
+                int complemento = valor - num;
+                if (hashset.Contains(complemento))
+                {
+                    pares.Add((num, complemento));
+                }
+                hashset.Add(num);
+            }
+
+            return pares;
+        }
+    }
+}

@@ -9,7 +9,7 @@ Esse problema é aplicável em diversas áreas, como segurança (verificação d
 
 ## Algoritmos Implementados
 
-1. **Força Bruta**: O algoritmo testa todas as combinações possíveis de dois números dentro do conjunto para ver se a soma deles é igual ao valor alvo.
+1. **Força Bruta**: O algoritmo testa todas as combinações possíveis de dois números dentro do conjunto para ver se a soma deles é igual ao valor valor.
    
 2. **Divisão e Conquista**: O algoritmo divide o problema em subproblemas menores, resolve os subproblemas e combina os resultados obtidos.
    
@@ -20,7 +20,7 @@ Esse problema é aplicável em diversas áreas, como segurança (verificação d
 
 ## Comparação de Desempenho
 
-| Algoritmo               | Descrição                                                         | Tempo de Execução (ms)| Eficiência |Memória Usada (MB) | Observações |
+| Algoritmo               | Descrição                                                         | Tempo de Execução (ms)| Eficiência |Memória Usada (KB) | Observações |
 |-------------------------|-------------------------------------------------------------------|-----------------------|------------|-------------------|-------------|
 | **Força Bruta**          | Testa todas as combinações possíveis até encontrar a solução ótima | 10 segundos         |            |                   |             |
 | **Divisão e Conquista**  | Divide o problema em subproblemas menores e resolve-os recursivamente | 5 segundos       |            |                   |             |

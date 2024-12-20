@@ -1,0 +1,15 @@
+/workspaces/td1/bin/Debug/net8.0/td1
+/workspaces/td1/bin/Debug/net8.0/td1.deps.json
+/workspaces/td1/bin/Debug/net8.0/td1.runtimeconfig.json
+/workspaces/td1/bin/Debug/net8.0/td1.dll
+/workspaces/td1/bin/Debug/net8.0/td1.pdb
+/workspaces/td1/obj/Debug/net8.0/td1.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/td1/obj/Debug/net8.0/td1.AssemblyInfoInputs.cache
+/workspaces/td1/obj/Debug/net8.0/td1.AssemblyInfo.cs
+/workspaces/td1/obj/Debug/net8.0/td1.csproj.CoreCompileInputs.cache
+/workspaces/td1/obj/Debug/net8.0/td1.sourcelink.json
+/workspaces/td1/obj/Debug/net8.0/td1.dll
+/workspaces/td1/obj/Debug/net8.0/refint/td1.dll
+/workspaces/td1/obj/Debug/net8.0/td1.pdb
+/workspaces/td1/obj/Debug/net8.0/td1.genruntimeconfig.cache
+/workspaces/td1/obj/Debug/net8.0/ref/td1.dll
