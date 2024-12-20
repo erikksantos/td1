@@ -1,23 +1,28 @@
-# Projeto: Problema da Mochila
+# Projeto: Problema de Soma de Pares
 
 ## Descrição do Problema
-Este projeto visa ajudar os alunos na resolução do **Trabalho Dirigido 1** através da implementação de três algoritmos para resolver o **Problema da Mochila (Knapsack Problem)**, utilizando três abordagens diferentes: **Força Bruta**, **Divisão e Conquista** e **Programação Dinâmica**.
 
-O **Problema da Mochila** é um problema clássico de otimização em ciência da computação. Dado um conjunto de itens, cada um com um peso e um valor, e uma mochila com capacidade limitada, o objetivo é determinar qual subconjunto de itens deve ser incluído na mochila para maximizar o valor total sem ultrapassar a capacidade de peso.
+O **Problema de Somas de Pares** consiste em encontrar, dentro de um conjunto de números, dois números cuja soma resulte em um determinado valor.
 
 ### Aplicabilidade Prática
-Esse problema é aplicável em diversas áreas, como logística (seleção de itens a serem transportados com peso limitado), investimentos financeiros (escolha de ativos com retorno máximo e orçamento limitado), e gerenciamento de recursos.
+Esse problema é aplicável em diversas áreas, como segurança (verificação de pares de dados seguros), finanças (identificação de transações que somam um valor específico) e desenvolvimento de software (resolução de problemas complexos com dados).
 
 ## Algoritmos Implementados
 
-1. **Força Bruta**: O algoritmo força bruta testa todas as combinações possíveis de itens, verificando qual delas oferece o maior valor sem exceder o peso máximo.
+1. **Força Bruta**: O algoritmo testa todas as combinações possíveis de dois números dentro do conjunto para ver se a soma deles é igual ao valor alvo.
    
-2. **Divisão e Conquista**: O algoritmo divide o problema em subproblemas menores, resolve-os individualmente e depois combina os resultados. 
+2. **Divisão e Conquista**: O algoritmo divide o problema em subproblemas menores, resolve os subproblemas e combina os resultados obtidos.
    
-3. **Programação Dinâmica**: A solução é construída a partir de soluções parciais armazenadas, evitando recomputações e tornando a resolução mais eficiente.
+3. **Programação Dinâmica**: O algoritmo é construído a partir de soluções parciais armazenadas, evitando recomputações e tornando o processo mais eficiente.
+
+4. **Algoritmo Guloso**: O algoritmo toma a melhor decisão em cada etapa, de forma local, na esperança de que essa escolha leve à solução global ótima.
 
 
-## Como Rodar
-1. Clone este repositório.
-2. Compile e execute o programa utilizando o Visual Studio ou outra IDE compatível com C#.
-3. Para testar o desempenho, altere os arquivos de instâncias na pasta `instancias` com diferentes tamanhos de entradas.
+## Comparação de Desempenho
+
+| Algoritmo               | Descrição                                                         | Tempo de Execução (ms)| Eficiência |Memória Usada (MB) | Observações |
+|-------------------------|-------------------------------------------------------------------|-----------------------|------------|-------------------|-------------|
+| **Força Bruta**          | Testa todas as combinações possíveis até encontrar a solução ótima | 10 segundos         |            |                   |             |
+| **Divisão e Conquista**  | Divide o problema em subproblemas menores e resolve-os recursivamente | 5 segundos       |            |                   |             |
+| **Programação Dinâmica** | Armazena soluções parciais para evitar recomputação               | 2 segundos           |            |                   |             |
+| **Algoritmo Guloso**     | Armazena soluções parciais para evitar recomputação               | 2 segundos           |            |                   |             |
