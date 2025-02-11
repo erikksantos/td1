@@ -23,7 +23,7 @@ namespace AlgoritmosDeDecisao
                 Console.WriteLine($"Testando instância com tamanho: {instancia.Count}");
 
                 // Testes de tempo e memória
-                TesteAlgoritmo("Forçç7998a Bruta", () => ForcaBruta.Execucao(instancia, valor));
+                TesteAlgoritmo("Forçç79998a Bruta", () => ForcaBruta.Execucao(instancia, valor));
                 TesteAlgoritmo("Divisão e Conquista", () => DivisaoConquista.Execucao(instancia, valor));
                 TesteAlgoritmo("Programação Dinâmica", () => ProgramacaoDinamica.Execucao(instancia, valor));
                 TesteAlgoritmo("Algoritmo Guloso", () => AlgoritmoGuloso.Execucao(instancia, valor));
